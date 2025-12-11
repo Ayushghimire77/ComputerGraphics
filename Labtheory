@@ -1,0 +1,53 @@
+Digital Differential Analyzer (DDA) Algorithm
+
+The DDA algorithm is a simple and widely used method for rasterization of lines in computer graphics. It is a scan-conversion algorithm that generates points of a line at discrete intervals between the start and end points. The algorithm uses floating-point arithmetic to incrementally calculate intermediate points along the line based on its slope.
+
+Algorithm Description
+
+1. Input: Coordinates of the two endpoints of the line,  and .
+
+
+2. Calculate differences:
+
+
+
+\Delta x = x_1 - x_0, \quad \Delta y = y_1 - y_0
+
+\text{steps} = \max(|\Delta x|, |\Delta y|)
+
+4. Calculate increment values for each step:
+
+
+
+X_{\text{inc}} = \frac{\Delta x}{\text{steps}}, \quad Y_{\text{inc}} = \frac{\Delta y}{\text{steps}}
+
+x = x_0, \quad y = y_0
+
+For each step, plot the pixel at 
+
+Increment:
+
+
+x = x + X_{\text{inc}}, \quad y = y + Y_{\text{inc}}
+
+Characteristics
+
+Produces smooth lines even for non-integer slopes.
+
+Simple to implement but uses floating-point operations, which can be slower than integer-only algorithms like Bresenham’s line algorithm.
+
+Works efficiently for lines with any slope.
+
+
+Advantages
+
+Easy to understand and implement.
+
+Can be extended to draw curves and other shapes.
+
+
+Disadvantages
+
+Involves floating-point calculations.
+
+Requires rounding operations at each step, which may introduce small computational errors
