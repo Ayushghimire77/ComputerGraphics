@@ -1,0 +1,74 @@
+
+Mid-Point Circle Drawing Algorithm – Theory
+
+The Mid-Point Circle Drawing Algorithm is a raster graphics algorithm used to draw a circle on a pixel-based display. It determines the closest pixel position to form a smooth circle using only integer calculations. The algorithm is based on the circle equation:
+
+x^2 + y^2 = r^2
+
+Instead of floating-point arithmetic, it uses a decision parameter to choose the next pixel, making it fast and efficient for computer graphics applications.
+
+
+---
+
+Basic Idea
+
+The circle is drawn in the first octant starting from point .
+
+For each calculated point, the corresponding seven symmetric points are plotted because a circle is symmetric about its axes and diagonals.
+
+A decision parameter (d) is used to check which pixel is closer to the actual circle path and update the next pixel accordingly.
+
+
+
+---
+
+Decision Parameter
+
+Initial decision parameter:
+
+d_0 = 1 - r
+
+For each step:
+
+If : next pixel is (x+1, y)
+
+
+d = d + 2x + 3
+
+d = d + 2(x - y) + 5
+
+
+---
+
+Symmetry Points
+
+For each calculated point , the algorithm plots eight points:
+
+(x, y),\; (y, x),\; (-x, y),\; (-y, x),\; (-x, -y),\; (-y, -x),\; (x, -y),\; (y, -x)
+
+
+---
+
+Advantages
+
+Uses integer arithmetic only (no trigonometry).
+
+Fast and suitable for real-time rendering.
+
+Reduces computations due to symmetry.
+
+
+
+---
+
+Applications
+
+Computer Graphics
+
+Drawing tools and paint programs
+
+Game development
+
+CAD & Simulation systems
+
+
